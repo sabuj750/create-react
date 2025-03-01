@@ -1,4 +1,4 @@
-function DeleteItem({item , ItemDate}){
+function DeleteItem({item , ItemDate , onButtonDelete}){
   return <div class="container">
   <div class="row my-row">
     <div class="col-6">
@@ -6,7 +6,7 @@ function DeleteItem({item , ItemDate}){
     </div>
     <div class="col-4">{ItemDate}</div>
     <div class="col-2">
-    <button type="button" class="btn btn-danger my-button">Delete</button>
+    <button type="button" className="btn btn-danger my-button" onClick={() => onButtonDelete(item)}>Delete</button>
     </div>
   </div>
   </div>

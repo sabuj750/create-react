@@ -13,12 +13,13 @@ function App() {
   const onkeydown = (e) => {
     if (e.key === 'Enter'){
       let value = e.target.value;
+    
       e.target.value = '';
       let newPets = [...pets , value];
       setPets(newPets);
     }
   };
-  let showText = 'You are entering the animal name';
+
   return (
     <>
       <Container>
