@@ -1,7 +1,7 @@
-.my-item {
-  background-color: lightblue;
-}
 .animal-style {
   font-size: 25px;
   font-weight: 25px;
+}
+.button{
+  float : right;
 }

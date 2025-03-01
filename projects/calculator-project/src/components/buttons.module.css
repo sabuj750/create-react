@@ -1,0 +1,18 @@
+.buttonStyle{
+  height: 45px;
+  width: 45px;
+  margin: 3px;
+  background-color: #9adfd7;
+  border-radius: 4px;
+  color: #5D576B;
+  transition: 0.2s ease 0s;
+  opacity: 0.6;
+}
+.buttonStyle:hover{
+  opacity: 1;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
