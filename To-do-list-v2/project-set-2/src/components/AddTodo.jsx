@@ -1,50 +1,47 @@
 import css from "./AddTodo.module.css";
-import { useState } from "react";
+import { MdLibraryAdd } from "react-icons/md";
+import itemContext from "../store/itemContext";
+import { useContext, useRef } from "react";
 
 
-function AddTodo({onButtonClick}) {
+function AddTodo() {
 
-  let [inputValue , setInputValue] = useState('');
-  let [dueDate , setDueDate] = useState('');
+  const useOnbuttonClick = useContext(itemContext);
+  const onButtonClick = useOnbuttonClick.addNewItem;
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    
-    
-  }
-  
-  const handleDateChange = (e) => {
-    setDueDate(e.target.value);
-    
-  }
+  const addItemElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+    let inputValue = addItemElement.current.value;
+    let dueDate = dueDateElement.current.value;
+    addItemElement.current.value = '';
+    dueDateElement.current.value = '';
     onButtonClick(inputValue , dueDate);
-    setInputValue('');
-    setDueDate('');
   }
 
   return (
-    <div class="container text-center">
-      <div class="row my-row">
+    <form onSubmit={handleButtonClick} class="container text-center">
+      <div className="row my-row">
         <div class="col-6">
           <input
             type="text"
+            ref={addItemElement}
             placeholder="Enter Todo content"
-            className={css['input-style']} value={inputValue}
-            onChange = {handleInputChange} 
+            className={css['input-style']}  
           />
         </div>
         <div class="col-4">
-          <input type="date" className={css['input-style']} value={dueDate} onChange={handleDateChange} />
+          <input type="date" ref={dueDateElement} className={css['input-style']} />
         </div>
         <div class="col-2">
-          <button type="button" className="btn btn-success my-button" onClick={handleButtonClick}>
-            Add
+          <button  className="btn btn-success my-button">
+          <MdLibraryAdd />
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

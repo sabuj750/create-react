@@ -1,7 +1,11 @@
+import itemContext from '../store/itemContext';
+import {useContext} from 'react';
 import style from './welcomeMassege.module.css';
 
 const WelcomeMassege = () => {
-  return <p className={style.paraStyle}>Enter your today's wark list.</p>
+  const  {items} = useContext(itemContext);
+  const message = items;
+  return message.length === 0 && <p className={style.paraStyle}>Enter your today's wark list.</p>
 
 }
 export default WelcomeMassege;
