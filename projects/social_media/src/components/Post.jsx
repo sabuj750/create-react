@@ -29,9 +29,7 @@ const Post = ({ postId, title, body, tags, reactions }) => {
         <div className="alert alert-success" role="alert">
           This post has been reacted by{" "}
           {`${
-            reactions.likes === true && reactions.dislikes === true
-              ? reactions.likes
-              : reactions
+            reactions.likes && reactions.dislikes ? reactions.likes : reactions
           }`}{" "}
           people.
         </div>
