@@ -1,0 +1,25 @@
+.hastags {
+  margin-right: 5px;
+  border-radius:4px;
+  padding: 5px;
+}
+.myContainer{
+  width: 60%;
+}
+.formStyle{
+  width: 70%;
+  padding: 30px;
+  margin-left: 50px;
+}
+.headingPost{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: darkcyan;
+}
+.welcomeMessage{
+  margin : 100px 0px;
+}
+.mySpinner{
+  margin :100px 0px;
+  
+}

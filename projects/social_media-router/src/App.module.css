@@ -1,0 +1,15 @@
+
+.MyContainer{
+  display: flex;
+}
+.Headings{
+  flex-grow: 1; /* This will make the .Headings div take up the remaining space */
+  max-width: 100%;
+}
+.SlidePanel{
+  width: 280px; /* Set a fixed width for the SlidePanel */
+  min-height: 100vh; 
+}
+.slidebar {
+  min-height: 400px;
+}
