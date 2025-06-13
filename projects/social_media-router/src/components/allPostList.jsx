@@ -8,16 +8,21 @@ const AllPostList = () => {
   const { postList, addInitialPost } = useContext(postListContext);
   const [fetching, setFetching] = useState(false);
   useEffect(() => {
-    if (!postList.length) {
-      setFetching(true);
-      fetch("https://dummyjson.com/posts")
-        .then((res) => res.json())
-        .then((data) => {
-          addInitialPost(data.posts);
-          setFetching(false);
-        });
-    }
-  }, [addInitialPost]);
+    setFetching(true);
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch("https://dummyjson.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPost(data.posts);
+        setFetching(false);
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   return (
     <div className="container">

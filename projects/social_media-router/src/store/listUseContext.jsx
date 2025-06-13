@@ -41,22 +41,14 @@ const postListContext = createContext({
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
-  const addPost = (userId, postTitle, BodyPost, reactions, tags) => {
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now().toString(),
-        title: postTitle,
-        body: BodyPost,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 
   const addInitialPost = (posts) => {
-    console.log(posts);
     dispatchPostList({
       type: "ADD_INITIAL_POST",
       payload: {
